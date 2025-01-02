@@ -9,41 +9,44 @@ function useParallax(value: MotionValue<number>, distance: number) {
 
 export default function ParallaxComponent() {
   const { scrollYProgress } = useScroll();
-  const backgroundY = useParallax(scrollYProgress, 100);
-  const astronautY = useParallax(scrollYProgress, 4000);
+  const backgroundY = useParallax(scrollYProgress, 800);
+  const mountainsY = useParallax(scrollYProgress, 100);
+  const astronautY = useParallax(scrollYProgress, 1200);
 
   return (
-    <div>
+    <div className="w-full h-screen overflow-hidden relative place-items-center">
       {/* Background */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/Bakgrunn.webp')",
           y: backgroundY,
         }}
       ></motion.div>
 
-      {/* Astronaut */}
+      {/* Mountains */}
       <motion.div
-        className="absolute top-6"
-        style={{ y: astronautY }}
-      >
-        <Image
-          src="/Astronaut.png"
-          alt="Astronaut"
-          width={300}
-          height={300}
-        />
+        className="absolute inset-0 z-20 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/Mountains.png')",
+          y: mountainsY,
+        }}
+      ></motion.div>
+
+      {/* Astronaut */}
+      <motion.div className="absolute z-10" style={{ y: astronautY }}>
+        <Image src="/Astronaut.png" alt="Astronaut" width={200} height={200} />
       </motion.div>
 
       {/* Content */}
-      <div className="h-[200vh]">
+      <div className="z-10">
         <div className="text-center">
           <h1 className="text-4xl font-bold">Welcome to the Parallax Page</h1>
-          <p className="text-lg mt-4">Scroll down to see the effect in action!</p>
+          <p className="text-lg mt-4">
+            Scroll down to see the effect in action!
+          </p>
         </div>
-
-    </div>
+      </div>
     </div>
   );
 }
