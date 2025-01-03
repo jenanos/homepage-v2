@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [0, distance]);
@@ -11,8 +12,11 @@ export default function ParallaxComponent() {
   const { scrollYProgress } = useScroll();
   const backgroundY = useParallax(scrollYProgress, 800);
   const mountainsY = useParallax(scrollYProgress, 100);
-  const astronautY = useParallax(scrollYProgress, 1200);
+  const astronautYDesktop = useParallax(scrollYProgress, 1200);
+  const astronautYMobile = useParallax(scrollYProgress, 4000);
   const textY = useParallax(scrollYProgress, 2800);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   return (
     <div className="w-full h-screen overflow-hidden relative place-items-center">
@@ -37,7 +41,7 @@ export default function ParallaxComponent() {
       {/* Astronaut */}
       <motion.div
         className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[10%]"
-        style={{ y: astronautY }}
+        style={{ y: isMobile ? astronautYMobile : astronautYDesktop }}
       >
         <Image
           src="/Astronaut.png"
