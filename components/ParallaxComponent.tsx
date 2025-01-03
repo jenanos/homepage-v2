@@ -40,7 +40,7 @@ export default function ParallaxComponent() {
 
       {/* Astronaut */}
       <motion.div
-        className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[10%]"
+        className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
         style={{ y: isMobile ? astronautYMobile : astronautYDesktop }}
       >
         <Image
@@ -54,15 +54,13 @@ export default function ParallaxComponent() {
 
       {/* Text-content */}
       <motion.div
-        className="absolute z-10 top-[30%] md:left-[40%] md:top-[10%]"
+        className="absolute z-10 top-[30%] md:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-50 rounded-xl text-center"
         style={{ y: textY }}
       >
-        <h1 className="text-4xl font-bold text-white drop-shadow-lg p-4 bg-black bg-opacity-50 rounded-xl text-center">
-          Welcome to my personal space!
-        </h1>
-        <p className="text-lg mt-4 text-white drop-shadow-lg p-4 bg-black bg-opacity-50 rounded-xl text-center">
-          Jens Osberg - lawyer and computer scientist by day, guitarist and
-          coder by night
+        <h1 className="text-4xl font-bold">Welcome to my personal space!</h1>
+        <h2 className="text-lg mt-4">Jens Osberg</h2>
+        <p className="text-lg mt-4">
+          Lawyer and computer scientist by day, guitarist and coder by night
         </p>
       </motion.div>
     </div>
