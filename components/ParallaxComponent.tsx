@@ -19,7 +19,10 @@ export default function ParallaxComponent() {
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   return (
-    <div className="w-full h-screen overflow-hidden relative place-items-center">
+    <div
+      id="home"
+      className="w-full h-screen overflow-hidden relative place-items-center"
+    >
       {/* Background */}
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center"

@@ -1,8 +1,8 @@
 export default function Speaking() {
   return (
     <div
-      id="info"
-      className="h-3/4 w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
+      id="speaking"
+      className="h-screen w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
     >
       <h1 className="p-4 text-4xl text-white">Public speaking</h1>
       <h2 className="text-center">

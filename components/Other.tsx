@@ -1,8 +1,8 @@
 export default function Other() {
   return (
     <div
-      id="info"
-      className="h-3/4 w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
+      id="other"
+      className="h-screen w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
     >
       <h1 className="p-4 text-4xl text-white">Other</h1>
       <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">

@@ -14,8 +14,8 @@ export default function Work() {
 
   return (
     <div
-      id="contact"
-      className="h-3/4 w-screen flex flex-col items-center justify-center bg-[#000000]"
+      id="work"
+      className="h-screen w-screen flex flex-col items-center justify-center bg-[#000000]"
     >
       <h1 className="p-4 text-4xl text-white">About me</h1>
       <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
