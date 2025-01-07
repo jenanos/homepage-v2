@@ -27,7 +27,7 @@ export default function ParallaxComponent() {
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Bakgrunn.webp')",
+          backgroundImage: "url('/background.jpg')",
           y: backgroundY,
         }}
       ></motion.div>
@@ -36,7 +36,7 @@ export default function ParallaxComponent() {
       <motion.div
         className="absolute inset-0 z-20 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Mountains.png')",
+          backgroundImage: "url('/mountains.png')",
           y: mountainsY,
         }}
       ></motion.div>
@@ -47,7 +47,7 @@ export default function ParallaxComponent() {
         style={{ y: isMobile ? astronautYMobile : astronautYDesktop }}
       >
         <Image
-          src="/Astronaut.png"
+          src="/astronaut.png"
           className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96"
           alt="Astronaut"
           width={300}
@@ -57,14 +57,13 @@ export default function ParallaxComponent() {
 
       {/* Text-content */}
       <motion.div
-        className="absolute z-10 top-[30%] md:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-50 rounded-xl text-center"
+        className="absolute z-10 top-[30%] md:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
         style={{ y: textY }}
       >
-        <h1 className="text-4xl font-bold">Welcome to my personal space!</h1>
-        <h2 className="text-lg mt-4">Jens Osberg</h2>
-        <p className="text-lg mt-4">
+        <h1 className="text-6xl font-bold">Welcome to my personal space!</h1>
+        <h2 className="text-2xl mt-4">
           Lawyer and computer scientist by day, guitarist and coder by night
-        </p>
+        </h2>
       </motion.div>
     </div>
   );

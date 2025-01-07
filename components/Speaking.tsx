@@ -2,7 +2,7 @@ export default function Speaking() {
   return (
     <div
       id="speaking"
-      className="h-screen w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
+      className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#001122] to-[#1E3A8A]"
     >
       <h1 className="p-4 text-4xl text-white">Public speaking</h1>
       <h2 className="text-center">

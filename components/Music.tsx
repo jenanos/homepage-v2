@@ -2,9 +2,9 @@ export default function Music() {
   return (
     <div
       id="music"
-      className="h-screen w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
+      className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
     >
-      <h1 className="p-4 text-4xl text-white">Public speaking</h1>
+      <h1 className="p-4 text-4xl text-white">Music</h1>
       <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
         <p className="py-3">
           Outside of work, I play guitar in a band called Gete. I also do some

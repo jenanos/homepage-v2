@@ -2,7 +2,10 @@ export default function Other() {
   return (
     <div
       id="other"
-      className="h-screen w-screen flex flex-col items-center justify-center bg-[#b3b3b3]"
+      className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-cover bg-bottom"
+      style={{
+        backgroundImage: "url('/waves.svg')",
+      }}
     >
       <h1 className="p-4 text-4xl text-white">Other</h1>
       <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
