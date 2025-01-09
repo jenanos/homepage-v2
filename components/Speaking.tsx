@@ -5,11 +5,19 @@ export default function Speaking() {
       className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#001122] to-[#1E3A8A]"
     >
       <h1 className="p-4 text-4xl text-white">Public speaking</h1>
-      <h2 className="text-center">
-        I am an experienced public speaker and have contributed to several
-        podcasts.
-      </h2>
-      <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
+      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
+        <p className="w-96 py-3">
+          I am an experienced public speaker, delivering dozens of talks
+          annually. These range from medium to small-scale presentations for
+          groups of lawyers, public entities, or developers to keynotes and
+          panel discussions at larger conferences.
+        </p>
+        <p className="w-96 py-3">
+          Additionally, I have contributed to several podcasts. You can find an
+          overview of some of my talks, panels, and podcast appearances [here].
+        </p>
+      </div>
+      <div className="flex w-3/4 md:w-1/2 flex-row justify-evenly text-center flex-wrap">
         <div className="mt-4">
           <iframe
             className="rounded-lg"

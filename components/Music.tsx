@@ -5,11 +5,23 @@ export default function Music() {
       className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
     >
       <h1 className="p-4 text-4xl text-white">Music</h1>
-      <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
-        <p className="py-3">
-          Outside of work, I play guitar in a band called Gete. I also do some
-          coding, but primarily for fun, as demonstrated by this website…
-        </p>
+      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
+        <div>
+          <p className="w-96 py-3">
+            I play guitar in a band called Gete. We have been playing together
+            for over 12 years, writing original music with lyrics in Norwegian,
+            specifically in a traditional Mandal dialect.
+          </p>
+          <p className="w-96 py-3">
+            Our music blends pop with influences from Norwegian folk and blues.
+            In addition to playing guitar, I contribute as a co-vocalist and
+            co-writer for many of our songs.
+          </p>
+          <p className="w-96 py-3">
+            In the summer of 2024, we proudly released an album titled Tynn Is.
+            You can listen to it here.
+          </p>
+        </div>
         <div className="mt-4">
           <iframe
             className="rounded-lg"

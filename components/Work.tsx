@@ -18,7 +18,7 @@ export default function Work() {
       className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#060606] to-[#001122]"
     >
       <h1 className="p-4 text-4xl text-white">About me</h1>
-      <div className="flex w-screen flex-row justify-evenly text-center flex-wrap">
+      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
         <motion.div
           className="max-w-xs"
           style={{
@@ -27,7 +27,7 @@ export default function Work() {
           }}
         >
           <Image
-            src="/Astronaut.png"
+            src="/astronaut.png"
             width={300}
             height={300}
             alt="Astronaut"
@@ -35,17 +35,18 @@ export default function Work() {
         </motion.div>
         <div className="max-w-xs py-3 text-white">
           <p className="py-3">
-            I am a lawyer with a masters degree in law and developer with
-            bachelors degree in programming and system architecture, both from
+            I am a lawyer with a master’s degree in law and a developer with a
+            bachelor’s degree in programming and system architecture, both from
             the University of Oslo.
           </p>
           <p className="py-3">
-            I am currently working with AI policy and regulation at the
-            Norwegian Digitalization Agency{" "}
+            Currently, I work on AI policy and regulation at the Norwegian
+            Digitalization Agency.
           </p>
           <p className="py-3">
-            I also have extensive experience with privacy, data protection,
-            automation-friendly regulation, cloud, and information security.
+            I also have extensive experience in privacy, data protection,
+            automation-friendly regulation, cloud technology, and information
+            security
           </p>
         </div>
       </div>
