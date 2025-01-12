@@ -1,3 +1,43 @@
+import { AnimatedTestimonials } from "./ui/animated-testimonials";
+
+const testimonials: Array<{
+  quote: string;
+  name: string;
+  designation: string;
+  src: string;
+}> = [
+  {
+    quote: "The view from space is breathtaking and humbling.",
+    name: "Astronaut",
+    designation: "Space Explorer",
+    src: "/takkoglov.jpg",
+  },
+  {
+    quote: "The vastness of the universe is a reminder of how small we are.",
+    name: "Background",
+    designation: "Cosmic Observer",
+    src: "/bobler.jpg",
+  },
+  {
+    quote: "The vastness of the universe is a reminder of how small we are.",
+    name: "Background",
+    designation: "Cosmic Observer",
+    src: "/nokios.jpg",
+  },
+  {
+    quote: "The vastness of the universe is a reminder of how small we are.",
+    name: "Background",
+    designation: "Cosmic Observer",
+    src: "/goforit.jpg",
+  },
+  {
+    quote: "The vastness of the universe is a reminder of how small we are.",
+    name: "Background",
+    designation: "Cosmic Observer",
+    src: "/frad.jpg",
+  },
+];
+
 export default function Speaking() {
   return (
     <div
@@ -17,32 +57,7 @@ export default function Speaking() {
           overview of some of my talks, panels, and podcast appearances [here].
         </p>
       </div>
-      <div className="flex w-3/4 md:w-1/2 flex-row justify-evenly text-center flex-wrap">
-        <div className="mt-4">
-          <iframe
-            className="rounded-lg"
-            src="https://open.spotify.com/embed/episode/6oYDwwjDGiTBJivip5EG3g?utm_source=generator&theme=0"
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div className="mt-4">
-          <iframe
-            className="rounded-lg"
-            src="https://open.spotify.com/embed/episode/3Q7uWL3e2gn7zRC9xbQq0S?utm_source=generator&theme=0"
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
+      <AnimatedTestimonials testimonials={testimonials} />
     </div>
   );
 }
