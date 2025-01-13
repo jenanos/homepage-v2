@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [0, distance]);
@@ -14,9 +15,11 @@ export default function ParallaxComponent() {
   const mountainsY = useParallax(scrollYProgress, 100);
   const astronautYDesktop = useParallax(scrollYProgress, 1200);
   const astronautYMobile = useParallax(scrollYProgress, 4000);
+  const astronautX = useParallax(scrollYProgress, -700); // Move left along X-axis
   const textY = useParallax(scrollYProgress, 2800);
 
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1025px)" });
 
   return (
     <div
@@ -44,7 +47,10 @@ export default function ParallaxComponent() {
       {/* Astronaut */}
       <motion.div
         className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
-        style={{ y: isMobile ? astronautYMobile : astronautYDesktop }}
+        style={{
+          y: isMobile ? astronautYMobile : astronautYDesktop,
+          x: astronautX,
+        }}
       >
         <Image
           src="/astronaut.png"
@@ -57,13 +63,26 @@ export default function ParallaxComponent() {
 
       {/* Text-content */}
       <motion.div
-        className="absolute z-10 top-[30%] md:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
+        className="absolute z-10 top-[30%] md:left-[5%] lg:left[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
         style={{ y: textY }}
       >
-        <h1 className="text-6xl font-bold">Welcome to my personal space!</h1>
-        <h2 className="text-2xl mt-4">
-          Lawyer and computer scientist by day, guitarist and coder by night
-        </h2>
+        <h1 className="text-6xl font-bold text-wrap">
+          Welcome to my personal space!
+        </h1>
+        {isTablet ? (
+          <h2 className="text-2xl mt-4">
+            Lawyer and computer scientist by day, guitarist and coder by night
+          </h2>
+        ) : (
+          <TypewriterEffectSmooth
+            words={[
+              {
+                text: "Lawyer and computer scientist by day, guitarist and coder by night",
+                className: "text-white text-2xl mt-4",
+              },
+            ]}
+          />
+        )}
       </motion.div>
     </div>
   );

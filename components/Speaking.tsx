@@ -5,36 +5,42 @@ const testimonials: Array<{
   name: string;
   designation: string;
   src: string;
+  link: string;
 }> = [
   {
     quote: "The view from space is breathtaking and humbling.",
     name: "Astronaut",
     designation: "Space Explorer",
     src: "/takkoglov.jpg",
+    link: "https://www.nasa.gov",
   },
   {
     quote: "The vastness of the universe is a reminder of how small we are.",
     name: "Background",
     designation: "Cosmic Observer",
     src: "/bobler.jpg",
+    link: "https://www.nasa.gov",
   },
   {
     quote: "The vastness of the universe is a reminder of how small we are.",
     name: "Background",
     designation: "Cosmic Observer",
     src: "/nokios.jpg",
+    link: "https://www.nasa.gov",
   },
   {
     quote: "The vastness of the universe is a reminder of how small we are.",
     name: "Background",
     designation: "Cosmic Observer",
     src: "/goforit.jpg",
+    link: "https://www.nasa.gov",
   },
   {
     quote: "The vastness of the universe is a reminder of how small we are.",
     name: "Background",
     designation: "Cosmic Observer",
     src: "/frad.jpg",
+    link: "https://www.nasa.gov",
   },
 ];
 

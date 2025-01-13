@@ -4,6 +4,7 @@ import Work from "@/components/Work";
 import Music from "@/components/Music";
 import Other from "@/components/Other";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Speaking />
       <Music />
       <Other />
+      <Footer />
     </div>
   );
 }

@@ -10,6 +10,7 @@ type Testimonial = {
   name: string;
   designation: string;
   src: string;
+  link: string;
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -142,6 +143,15 @@ export const AnimatedTestimonials = ({
                   {word}&nbsp;
                 </motion.span>
               ))}
+              <p className="text-sm text-gray-500 dark:text-neutral-500">
+                Check it out{" "}
+                <a
+                  href={testimonials[active].link}
+                  className="text-blue-500 underline"
+                >
+                  here!
+                </a>
+              </p>
             </motion.p>
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">
