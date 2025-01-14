@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: "Speaking", path: "#speaking" },
     { name: "Music", path: "#music" },
     { name: "Other", path: "#other" },
+    { name: "Contact", path: "#contact" },
   ];
 
   return (

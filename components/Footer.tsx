@@ -2,7 +2,10 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#13acb6] p-5 text-center left-0 bottom-0 w-full">
+    <footer
+      id="contact"
+      className="bg-[#13acb6] p-5 text-center left-0 bottom-0 w-full"
+    >
       <div className="max-w-3xl mx-auto">
         <p>Contact me:</p>
         <ul className="list-none p-0 flex justify-center space-x-6 mt-4">
