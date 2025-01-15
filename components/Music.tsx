@@ -18,7 +18,7 @@ export default function Music() {
             loading="lazy"
           ></iframe>
         </div>
-        <div className="w-96">
+        <div className="w-96 text-white">
           <p className="py-3">
             I play guitar in a band called Gete. In the summer of 2024, we
             proudly released an album titled Tynn Is.

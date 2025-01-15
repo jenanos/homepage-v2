@@ -8,10 +8,18 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setActiveSection(pathname);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   const navItems = [
@@ -24,7 +32,11 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full z-30 fixed bg-transparent text-white">
+    <nav
+      className={`w-full z-40 fixed transition-all duration-300 ${
+        isScrolled ? "bg-[#001122]" : "bg-transparent"
+      } text-white`}
+    >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <div className="text-2xl font-bold">Jens Osberg</div>
 
@@ -51,13 +63,14 @@ export default function Navbar() {
         <ul
           className={`${
             isOpen ? "block" : "hidden"
-          } md:flex z-40 md:items-center list-none absolute md:static bg-slate-600 bg-opacity-50 md:bg-transparent top-16 left-0 w-full md:space-y-0 md:space-x-6 space-y-6 md:py-0 py-4 px-6`}
+          } md:flex z-40 md:items-center list-none absolute md:static bg-[#001122] md:bg-transparent top-16 left-0 w-full md:space-y-0 md:space-x-6 space-y-6 md:py-0 py-4 px-6`}
         >
           {navItems.map((item) => (
             <li key={item.path} className="text-center">
               <Link
                 href={item.path}
                 scroll={true}
+                onClick={() => setIsOpen(false)}
                 className={`relative no-underline hover:text-gray-300 transition duration-200 ${
                   activeSection === item.path ? "font-semibold" : ""
                 }`}

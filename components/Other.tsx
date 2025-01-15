@@ -11,7 +11,7 @@ export default function Other() {
     >
       <h1 className="p-4 text-4xl text-white">Other</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
-        <div className="w-96">
+        <div className="w-96 text-white">
           <p className="py-3">
             I hold a bachelor’s degree in programming and system architecture
             and have experience with languages and technologies such as Python,

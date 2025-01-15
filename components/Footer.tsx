@@ -7,7 +7,7 @@ export default function Footer() {
       className="bg-[#13acb6] p-5 text-center left-0 bottom-0 w-full"
     >
       <div className="max-w-3xl mx-auto">
-        <p>Contact me:</p>
+        <h1 className="p-4 text-4xl text-white">Contact me</h1>
         <ul className="list-none p-0 flex justify-center space-x-6 mt-4">
           <li className="flex items-center space-x-2">
             <svg
