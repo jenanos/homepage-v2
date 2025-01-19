@@ -3,13 +3,13 @@ import { PrevSite } from "./prevSite";
 export default function Other() {
   return (
     <div
-      id="other"
+      id="developer"
       className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-cover bg-bottom"
       style={{
         backgroundImage: "url('/waves.svg')",
       }}
     >
-      <h1 className="p-4 text-4xl text-white">Other</h1>
+      <h1 className="p-4 text-4xl text-white">Developer</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
         <div className="w-96 text-white">
           <p className="py-3">

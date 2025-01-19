@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 type Testimonial = {
   quote: string;
   name: string;
-  designation: string;
   src: string;
   link: string;
 };
@@ -113,13 +112,11 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold dark:text-white text-black">
+            <h3 className="text-2xl font-bold  text-white">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
+
+            <motion.p className="text-lg text-white mt-2 md:mt-8 ">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -143,13 +140,13 @@ export const AnimatedTestimonials = ({
                   {word}&nbsp;
                 </motion.span>
               ))}
-              <p className="text-sm text-gray-500 dark:text-neutral-500">
+              <p className="text-m text-white mt-1 md:mt-4 ">
                 Check it out{" "}
                 <a
                   href={testimonials[active].link}
                   className="text-blue-500 underline"
                 >
-                  here!
+                  here
                 </a>
               </p>
             </motion.p>
