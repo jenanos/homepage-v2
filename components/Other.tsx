@@ -23,11 +23,6 @@ export default function Other() {
             features and technologies while staying connected to my technical
             roots.
           </p>
-          <p className="py-3">
-            This website is an example of such experimentation. Much of its code
-            was developed with GitHub Copilot and ChatGPT, so that I could get
-            familiar with the capabilities of AI-assisted coding.
-          </p>
         </div>
         <PrevSite />
       </div>

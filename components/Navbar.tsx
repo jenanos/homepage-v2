@@ -37,7 +37,9 @@ export default function Navbar() {
         } text-white`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        <div className="text-2xl font-bold">Jens Osberg</div>
+        <Link href="#home">
+          <div className="text-2xl font-bold">Jens Osberg</div>
+        </Link>
 
         <button
           onClick={() => setIsOpen(!isOpen)}

@@ -33,7 +33,7 @@ export function PrevSite() {
           <CardItem
             translateZ={20}
             as={Link}
-            href="https://www.jensosberg.com/"
+            href="https://homepage-seven-lyart.vercel.app/"
             target="__blank"
             className="px-4 pb-2 rounded-xl text-s font-normal text-white"
           >
@@ -42,7 +42,7 @@ export function PrevSite() {
           <CardItem
             translateZ={20}
             as={Link}
-            href="https://www.jensosberg.com/"
+            href="https://homepage-seven-lyart.vercel.app/"
             target="__blank"
             className="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold"
           >
