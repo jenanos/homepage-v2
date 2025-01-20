@@ -32,7 +32,7 @@ export function PrevSite() {
         <div className="flex justify-between items-center mt-20">
           <CardItem
             translateZ={20}
-            as={Link}
+            as={"p"}
             href="https://homepage-seven-lyart.vercel.app/"
             target="__blank"
             className="px-4 pb-2 rounded-xl text-s font-normal text-white"
