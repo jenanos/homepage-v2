@@ -16,7 +16,7 @@ export default function Work() {
   return (
     <div
       id="work"
-      className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#060606] to-[#001122]"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#060606] to-[#001122]"
     >
       <h1 className="p-4 text-4xl text-white">About me</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">

@@ -4,7 +4,7 @@ export default function Other() {
   return (
     <div
       id="developer"
-      className="min-h-screen md:min-h-fit w-screen py-10 flex flex-col items-center justify-center bg-cover bg-bottom"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-cover bg-bottom"
       style={{
         backgroundImage: "url('/waves.svg')",
       }}

@@ -2,7 +2,7 @@ export default function Music() {
   return (
     <div
       id="music"
-      className="min-h-screen md:min-h-fit w-screen py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
     >
       <h1 className="p-4 text-4xl text-white">Music</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
