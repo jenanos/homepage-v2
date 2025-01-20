@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-[#13acb6] p-5 text-center left-0 bottom-0 w-full"
+      className="bg-[#13acb6] pt-10 pb-20 text-center left-0 bottom-0 w-full"
     >
       <div className="max-w-3xl mx-auto">
         <h1 className="p-4 text-4xl text-white">Contact me</h1>

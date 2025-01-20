@@ -29,7 +29,7 @@ export function PrevSite() {
             alt="thumbnail"
           />
         </CardItem>
-        <div className="flex justify-between items-center mt-20">
+        <div className="flex justify-between items-center mt-5">
           <CardItem
             translateZ={20}
             as={"p"}

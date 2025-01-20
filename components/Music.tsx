@@ -2,7 +2,7 @@ export default function Music() {
   return (
     <div
       id="music"
-      className="min-h-screen md:min-h-fit w-screen md:py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
+      className="min-h-screen md:min-h-fit w-screen py-10 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
     >
       <h1 className="p-4 text-4xl text-white">Music</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
@@ -12,13 +12,12 @@ export default function Music() {
             src="https://open.spotify.com/embed/album/4hozCpmIaT0jbctqL3sOFi?utm_source=generator"
             width="100%"
             height="352"
-            frameBorder="0"
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
         </div>
-        <div className="w-96 text-white">
+        <div className="w-96 text-white md:pt-0 pt-4">
           <p className="py-3">
             I play guitar in a band called Gete. In the summer of 2024, we
             proudly released an album titled Tynn Is.
