@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 export default function Work() {
   const { scrollYProgress } = useScroll();
-  const astronautXDesktop = useTransform(scrollYProgress, [0, 1], [-400, 100]);
+  const astronautXDesktop = useTransform(scrollYProgress, [0, 0.6], [-400, 0]);
   const astronautXMobile = useTransform(scrollYProgress, [0, 0.2], [-400, 0]);
   const opacityDesktop = useTransform(scrollYProgress, [0, 1], [0, 3]);
   const opacityMobile = useTransform(scrollYProgress, [0, 1], [0, 5]);
