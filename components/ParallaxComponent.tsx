@@ -33,8 +33,8 @@ export default function ParallaxComponent() {
     scrollYProgress,
     shouldReduceMotion ? 0 : -500
   );
-  const astronautFadeStart = isMobile ? 0.35 : 0.2;
-  const astronautFadeEnd = isMobile ? 0.75 : 0.6;
+  const astronautFadeStart = isMobile ? 0.85 : 0.55;
+  const astronautFadeEnd = isMobile ? 0.95 : 0.75;
   const astronautOpacity = useTransform(
     scrollYProgress,
     [0, astronautFadeStart, astronautFadeEnd],
