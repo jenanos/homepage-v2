@@ -1,37 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useMediaQuery } from "@/lib/hooks/use-media-query";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 export default function Work() {
   const { scrollYProgress } = useScroll();
-  const shouldReduceMotion = useReducedMotion();
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const astronautXDesktop = useTransform(scrollYProgress, [0, 0.6], [-400, 0]);
+  const astronautXMobile = useTransform(scrollYProgress, [0, 0.2], [-400, 0]);
+  const opacityDesktop = useTransform(scrollYProgress, [0, 1], [0, 3]);
+  const opacityMobile = useTransform(scrollYProgress, [0, 1], [0, 5]);
 
-  const xInputRange = shouldReduceMotion ? [0, 1] : [0, isMobile ? 0.2 : 0.6];
-  const xOutputRange = shouldReduceMotion ? [0, 0] : [-200, 0];
-  const astronautX = useTransform(scrollYProgress, xInputRange, xOutputRange);
-  const opacityOutput = shouldReduceMotion ? [1, 1] : [0, 1];
-  const opacity = useTransform(scrollYProgress, [0, 1], opacityOutput);
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   return (
-    <section
+    <div
       id="work"
       className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#060606] to-[#001122]"
-      aria-labelledby="work-heading"
     >
-      <h2 id="work-heading" className="p-4 text-4xl text-white">
-        About me
-      </h2>
+      <h1 className="p-4 text-4xl text-white">About me</h1>
       <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
         <motion.div
           className="max-w-xs"
           style={{
-            x: astronautX,
-            opacity,
+            x: isMobile ? astronautXMobile : astronautXDesktop,
+            opacity: isMobile ? opacityMobile : opacityDesktop,
           }}
-          aria-hidden
         >
           <Image
             src="/astronaut.png"
@@ -40,7 +34,7 @@ export default function Work() {
             alt="Astronaut"
           />
         </motion.div>
-        <div className="max-w-xs py-3 text-white text-left md:text-center">
+        <div className="max-w-xs py-3 text-white">
           <p className="py-3">
             I am a lawyer with a master’s degree in law and a developer with a
             bachelor’s degree in programming and system architecture, both from
@@ -53,10 +47,10 @@ export default function Work() {
           <p className="py-3">
             I also have extensive experience in privacy, data protection,
             automation-friendly regulation, cloud technology, and information
-            security.
+            security
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
