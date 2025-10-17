@@ -8,6 +8,7 @@ import {
   MotionValue,
   useReducedMotion,
 } from "framer-motion";
+import { useRef } from "react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 import { useMediaQuery } from "@/lib/hooks/use-media-query";
 
@@ -19,7 +20,11 @@ const heroMessage =
   "Lawyer and computer scientist by day, guitarist and coder by night";
 
 export default function ParallaxComponent() {
-  const { scrollYProgress } = useScroll();
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start end", "end start"],
+  });
   const shouldReduceMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 767px)");
 
@@ -33,8 +38,8 @@ export default function ParallaxComponent() {
     scrollYProgress,
     shouldReduceMotion ? 0 : -500
   );
-  const astronautFadeStart = isMobile ? 0.85 : 0.55;
-  const astronautFadeEnd = isMobile ? 0.95 : 0.75;
+  const astronautFadeStart = isMobile ? 0.95 : 0.75;
+  const astronautFadeEnd = 1;
   const astronautOpacity = useTransform(
     scrollYProgress,
     [0, astronautFadeStart, astronautFadeEnd],
@@ -50,6 +55,7 @@ export default function ParallaxComponent() {
       id="home"
       className="w-full h-screen overflow-hidden relative place-items-center"
       aria-labelledby="home-heading"
+      ref={heroRef}
     >
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center"
