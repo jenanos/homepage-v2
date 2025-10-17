@@ -63,10 +63,11 @@ export default function ParallaxComponent() {
       />
 
       <motion.div
-        className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
+        className="absolute z-30 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
         style={{
           y: astronautY,
           x: astronautX,
+          opacity: shouldReduceMotion ? 1 : astronautOpacity,
         }}
         aria-hidden
       >
