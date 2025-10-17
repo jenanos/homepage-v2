@@ -1,56 +1,76 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  useReducedMotion,
+} from "framer-motion";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { useMediaQuery } from "@/lib/hooks/use-media-query";
 
 function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [0, distance]);
 }
 
+const heroMessage =
+  "Lawyer and computer scientist by day, guitarist and coder by night";
+
 export default function ParallaxComponent() {
   const { scrollYProgress } = useScroll();
-  const backgroundY = useParallax(scrollYProgress, 800);
-  const mountainsY = useParallax(scrollYProgress, 100);
-  const astronautYDesktop = useParallax(scrollYProgress, 1200);
-  const astronautYMobile = useParallax(scrollYProgress, 4000);
-  const astronautX = useParallax(scrollYProgress, -700); // Move left along X-axis
-  const textY = useParallax(scrollYProgress, 2800);
+  const shouldReduceMotion = useReducedMotion();
+  const isMobile = useMediaQuery("(max-width: 767px)");
 
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1025px)" });
+  const astronautTravelDistance = shouldReduceMotion ? 0 : isMobile ? 800 : 1200;
+
+  const backgroundY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 800);
+  const mountainsY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 100);
+  const astronautY = useParallax(scrollYProgress, astronautTravelDistance);
+  const astronautX = useParallax(scrollYProgress, shouldReduceMotion ? 0 : -500);
+  const astronautOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.65, 0.85, 0.95, 1],
+    [0, 0.2, 0.5, 0.75, 1]
+  );
+  const textY = useParallax(
+    scrollYProgress,
+    shouldReduceMotion ? 0 : isMobile ? 600 : 1200
+  );
 
   return (
-    <div
+    <section
       id="home"
       className="w-full h-screen overflow-hidden relative place-items-center"
+      aria-labelledby="home-heading"
     >
-      {/* Background */}
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/background.jpg')",
           y: backgroundY,
         }}
-      ></motion.div>
+        aria-hidden
+      />
 
-      {/* Mountains */}
       <motion.div
         className="absolute inset-0 z-20 bg-cover bg-center"
         style={{
           backgroundImage: "url('/mountains.png')",
           y: mountainsY,
         }}
-      ></motion.div>
+        aria-hidden
+      />
 
-      {/* Astronaut */}
       <motion.div
-        className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
+        className="absolute z-30 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
         style={{
-          y: isMobile ? astronautYMobile : astronautYDesktop,
+          y: astronautY,
           x: astronautX,
+          opacity: shouldReduceMotion ? 1 : astronautOpacity,
         }}
+        aria-hidden
       >
         <Image
           src="/astronaut.png"
@@ -58,32 +78,34 @@ export default function ParallaxComponent() {
           alt="Astronaut"
           width={300}
           height={300}
+          priority
         />
       </motion.div>
 
-      {/* Text-content */}
       <motion.div
-        className="absolute z-10 top-[30%] md:left-[5%] lg:left[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
+        className="absolute z-10 top-[30%] md:left-[5%] lg:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
         style={{ y: textY }}
       >
-        <h1 className="text-6xl font-bold text-wrap">
+        <h1 id="home-heading" className="text-6xl font-bold text-wrap">
           Welcome to my personal space!
         </h1>
-        {isTablet ? (
-          <h2 className="text-2xl mt-4">
-            Lawyer and computer scientist by day, guitarist and coder by night
-          </h2>
-        ) : (
+        <p className="sr-only">{heroMessage}</p>
+        <div className="md:hidden mt-4 text-2xl">{heroMessage}</div>
+        {!shouldReduceMotion && (
           <TypewriterEffectSmooth
             words={[
               {
-                text: "Lawyer and computer scientist by day, guitarist and coder by night",
+                text: heroMessage,
                 className: "text-white text-2xl mt-4",
               },
             ]}
+            className="hidden md:flex"
           />
         )}
+        {shouldReduceMotion && (
+          <div className="hidden md:block text-2xl mt-4">{heroMessage}</div>
+        )}
       </motion.div>
-    </div>
+    </section>
   );
 }
