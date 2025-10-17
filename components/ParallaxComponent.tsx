@@ -33,6 +33,7 @@ export default function ParallaxComponent() {
     scrollYProgress,
     shouldReduceMotion ? 0 : -500
   );
+  const astronautOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const textY = useParallax(
     scrollYProgress,
     shouldReduceMotion ? 0 : isMobile ? 600 : 1200
