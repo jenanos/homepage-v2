@@ -23,16 +23,15 @@ export default function ParallaxComponent() {
   const shouldReduceMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 767px)");
 
-  const astronautTravelDistance = shouldReduceMotion ? 0 : isMobile ? 800 : 1200;
-
   const backgroundY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 800);
   const mountainsY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 100);
-  const astronautY = useParallax(scrollYProgress, astronautTravelDistance);
-  const astronautX = useParallax(scrollYProgress, shouldReduceMotion ? 0 : -500);
-  const astronautOpacity = useTransform(
+  const astronautY = useParallax(
     scrollYProgress,
-    [0, 0.65, 0.85, 0.95, 1],
-    [0, 0.2, 0.5, 0.75, 1]
+    shouldReduceMotion ? 0 : isMobile ? 800 : 1200
+  );
+  const astronautX = useParallax(
+    scrollYProgress,
+    shouldReduceMotion ? 0 : -500
   );
   const textY = useParallax(
     scrollYProgress,
