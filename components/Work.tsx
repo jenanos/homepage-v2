@@ -9,11 +9,26 @@ export default function Work() {
   const shouldReduceMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 767px)");
 
-  const xInputRange = shouldReduceMotion ? [0, 1] : [0, isMobile ? 0.2 : 0.6];
-  const xOutputRange = shouldReduceMotion ? [0, 0] : [-200, 0];
-  const astronautX = useTransform(scrollYProgress, xInputRange, xOutputRange);
-  const opacityOutput = shouldReduceMotion ? [1, 1] : [0, 1];
-  const opacity = useTransform(scrollYProgress, [0, 1], opacityOutput);
+  const astronautXDesktop = useTransform(
+    scrollYProgress,
+    [0, shouldReduceMotion ? 1 : 0.6],
+    shouldReduceMotion ? [0, 0] : [-400, 0]
+  );
+  const astronautXMobile = useTransform(
+    scrollYProgress,
+    [0, shouldReduceMotion ? 1 : 0.2],
+    shouldReduceMotion ? [0, 0] : [-400, 0]
+  );
+  const opacityDesktop = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [1, 1] : [0, 3]
+  );
+  const opacityMobile = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? [1, 1] : [0, 5]
+  );
 
   return (
     <section
@@ -28,8 +43,8 @@ export default function Work() {
         <motion.div
           className="max-w-xs"
           style={{
-            x: astronautX,
-            opacity,
+            x: isMobile ? astronautXMobile : astronautXDesktop,
+            opacity: isMobile ? opacityMobile : opacityDesktop,
           }}
           aria-hidden
         >

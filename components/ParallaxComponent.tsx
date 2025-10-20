@@ -22,22 +22,19 @@ export default function ParallaxComponent() {
   const { scrollYProgress } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 767px)");
+  const isTablet = useMediaQuery("(max-width: 1025px)");
 
   const backgroundY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 800);
   const mountainsY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 100);
   const astronautY = useParallax(
     scrollYProgress,
-    shouldReduceMotion ? 0 : isMobile ? 800 : 1200
+    shouldReduceMotion ? 0 : isMobile ? 4000 : 1200
   );
   const astronautX = useParallax(
     scrollYProgress,
-    shouldReduceMotion ? 0 : -500
+    shouldReduceMotion ? 0 : -700
   );
-  const astronautOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const textY = useParallax(
-    scrollYProgress,
-    shouldReduceMotion ? 0 : isMobile ? 600 : 1200
-  );
+  const textY = useParallax(scrollYProgress, shouldReduceMotion ? 0 : 2800);
 
   return (
     <section
@@ -64,11 +61,10 @@ export default function ParallaxComponent() {
       />
 
       <motion.div
-        className="absolute z-30 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
+        className="absolute z-10 top-[10%] right-[5%] md:top-[30%] md:right-[30%]"
         style={{
           y: astronautY,
           x: astronautX,
-          opacity: shouldReduceMotion ? 1 : astronautOpacity,
         }}
         aria-hidden
       >
@@ -89,9 +85,9 @@ export default function ParallaxComponent() {
         <h1 id="home-heading" className="text-6xl font-bold text-wrap">
           Welcome to my personal space!
         </h1>
-        <p className="sr-only">{heroMessage}</p>
-        <div className="md:hidden mt-4 text-2xl">{heroMessage}</div>
-        {!shouldReduceMotion && (
+        {shouldReduceMotion || isTablet ? (
+          <div className="text-2xl mt-4">{heroMessage}</div>
+        ) : (
           <TypewriterEffectSmooth
             words={[
               {
@@ -99,11 +95,7 @@ export default function ParallaxComponent() {
                 className: "text-white text-2xl mt-4",
               },
             ]}
-            className="hidden md:flex"
           />
-        )}
-        {shouldReduceMotion && (
-          <div className="hidden md:block text-2xl mt-4">{heroMessage}</div>
         )}
       </motion.div>
     </section>
