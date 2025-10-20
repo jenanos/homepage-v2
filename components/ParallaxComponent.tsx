@@ -79,7 +79,7 @@ export default function ParallaxComponent() {
       </motion.div>
 
       <motion.div
-        className="absolute z-10 top-[30%] md:left-[5%] lg:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-black bg-opacity-10 rounded-xl text-center"
+        className="absolute z-10 top-[30%] md:left-[5%] lg:left-[20%] md:top-[10%] text-white drop-shadow-lg p-4 bg-transparent rounded-xl text-center"
         style={{ y: textY }}
       >
         <h1 id="home-heading" className="text-6xl font-bold text-wrap">
