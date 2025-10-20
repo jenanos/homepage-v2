@@ -33,7 +33,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#060606] to-[#001122]"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-linear-to-b from-[#060606] to-[#001122]"
       aria-labelledby="work-heading"
     >
       <h2 id="work-heading" className="p-4 text-4xl text-white">

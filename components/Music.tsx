@@ -2,7 +2,7 @@ export default function Music() {
   return (
     <section
       id="music"
-      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#1E3A8A] to-[#60A5FA]"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-linear-to-b from-[#1E3A8A] to-[#60A5FA]"
       aria-labelledby="music-heading"
     >
       <h2 id="music-heading" className="p-4 text-4xl text-white">

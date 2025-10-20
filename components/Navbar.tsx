@@ -101,7 +101,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={toggleMenu}
-          className="md:hidden focus:outline-none"
+          className="md:hidden focus:outline-hidden"
           aria-expanded={isOpen}
           aria-controls="primary-navigation"
         >

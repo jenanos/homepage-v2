@@ -47,7 +47,7 @@ export default function Speaking() {
   return (
     <section
       id="speaking"
-      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-gradient-to-b from-[#001122] to-[#1E3A8A]"
+      className="min-h-screen md:min-h-fit w-screen pt-24 flex flex-col items-center justify-center bg-linear-to-b from-[#001122] to-[#1E3A8A]"
       aria-labelledby="speaking-heading"
     >
       <h2 id="speaking-heading" className="p-4 text-4xl text-white">
