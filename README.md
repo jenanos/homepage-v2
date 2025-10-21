@@ -15,7 +15,8 @@ Welcome to the codebase behind Jens Osberg's modern, one-page personal site. The
 - [React 19](https://react.dev/) with client/server components
 - [Tailwind CSS](https://tailwindcss.com/) for styling and gradients
 - [Framer Motion](https://www.framer.com/motion/) for parallax, scroll, and hover animations
-- [react-responsive](https://github.com/contra/react-responsive) for adaptive motion behavior
+- [react-swipeable](https://www.npmjs.com/package/react-swipeable) for touch and trackpad gestures in the testimonial carousel
+- Custom, SSR-safe [`useMediaQuery`](./lib/hooks/use-media-query.ts) hook for adaptive motion behavior
 - Custom UI utilities for the testimonial slider, 3D card, and typewriter effect
 
 ## 🗂️ Project Structure
@@ -32,6 +33,9 @@ components/
   Other.tsx       // Developer section with 3D card link
   Footer.tsx      // Contact section with social links
   ui/             // Reusable animated and 3D UI primitives
+lib/
+  hooks/         // Shared React hooks (e.g. useMediaQuery)
+  utils.ts       // Utility helpers shared across components
 public/
   *.jpg, *.png, *.svg assets used across sections
 ```
