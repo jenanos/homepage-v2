@@ -1,10 +1,9 @@
 "use client";
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useSwipeable } from "react-swipeable";
 
 type Testimonial = {
@@ -13,6 +12,7 @@ type Testimonial = {
   src: string;
   link: string;
 };
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -21,6 +21,12 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  const rotationValues = useMemo(
+    () => testimonials.map((_, index) => ((index % 5) - 2) * 3),
+    [testimonials]
+  );
 
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -30,20 +36,12 @@ export const AnimatedTestimonials = ({
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   }, [testimonials.length]);
 
-  const isActive = (index: number) => {
-    return index === active;
-  };
-
   useEffect(() => {
     if (autoplay) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
   }, [autoplay, handleNext]);
-
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
 
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNext(),
@@ -57,47 +55,51 @@ export const AnimatedTestimonials = ({
           <div>
             <div className="relative h-80 w-full">
               <AnimatePresence>
-                {testimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={testimonial.src}
-                    initial={{
-                      opacity: 0,
-                      scale: 0.9,
-                      z: -100,
-                      rotate: randomRotateY(),
-                    }}
-                    animate={{
-                      opacity: isActive(index) ? 1 : 0.7,
-                      scale: isActive(index) ? 1 : 0.95,
-                      z: isActive(index) ? 0 : -100,
-                      rotate: isActive(index) ? 0 : randomRotateY(),
-                      zIndex: isActive(index)
-                        ? 30
-                        : testimonials.length + 2 - index,
-                      y: isActive(index) ? [0, -80, 0] : 0,
-                    }}
-                    exit={{
-                      opacity: 0,
-                      scale: 0.9,
-                      z: 100,
-                      rotate: randomRotateY(),
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute inset-0 origin-bottom"
-                  >
-                    <Image
-                      src={testimonial.src}
-                      alt={testimonial.name}
-                      width={500}
-                      height={500}
-                      draggable={false}
-                      className="h-full w-full rounded-3xl object-cover object-center"
-                    />
-                  </motion.div>
-                ))}
+                {testimonials.map((testimonial, index) => {
+                  const rotation = rotationValues[index] ?? 0;
+                  return (
+                    <motion.div
+                      key={testimonial.src}
+                      initial={{
+                        opacity: 0,
+                        scale: 0.9,
+                        z: -100,
+                        rotate: rotation,
+                      }}
+                      animate={{
+                        opacity: index === active ? 1 : 0.7,
+                        scale: index === active ? 1 : 0.95,
+                        z: index === active ? 0 : -100,
+                        rotate: index === active ? 0 : rotation,
+                        zIndex: index === active ? 30 : testimonials.length + 2 - index,
+                        y:
+                          index === active && !shouldReduceMotion
+                            ? [0, -40, 0]
+                            : 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        scale: 0.9,
+                        z: 100,
+                        rotate: rotation,
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: "easeInOut",
+                      }}
+                      className="absolute inset-0 origin-bottom"
+                    >
+                      <Image
+                        src={testimonial.src}
+                        alt={testimonial.name}
+                        width={500}
+                        height={500}
+                        draggable={false}
+                        className="h-full w-full rounded-3xl object-cover object-center"
+                      />
+                    </motion.div>
+                  );
+                })}
               </AnimatePresence>
             </div>
           </div>
@@ -105,7 +107,7 @@ export const AnimatedTestimonials = ({
             <motion.div
               key={active}
               initial={{
-                y: 20,
+                y: shouldReduceMotion ? 0 : 20,
                 opacity: 0,
               }}
               animate={{
@@ -113,7 +115,7 @@ export const AnimatedTestimonials = ({
                 opacity: 1,
               }}
               exit={{
-                y: -20,
+                y: shouldReduceMotion ? 0 : -20,
                 opacity: 0,
               }}
               transition={{
@@ -125,14 +127,14 @@ export const AnimatedTestimonials = ({
                 {testimonials[active].name}
               </h3>
 
-              <motion.p className="text-lg text-white mt-2 md:mt-8 ">
+              <motion.p className="text-lg text-white mt-2 md:mt-8">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
                     initial={{
-                      filter: "blur(10px)",
+                      filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
                       opacity: 0,
-                      y: 5,
+                      y: shouldReduceMotion ? 0 : 5,
                     }}
                     animate={{
                       filter: "blur(0px)",
@@ -142,34 +144,36 @@ export const AnimatedTestimonials = ({
                     transition={{
                       duration: 0.2,
                       ease: "easeInOut",
-                      delay: 0.02 * index,
+                      delay: shouldReduceMotion ? 0 : 0.02 * index,
                     }}
                     className="inline-block"
                   >
                     {word}&nbsp;
                   </motion.span>
                 ))}
-                <p className="text-m text-white mt-1 md:mt-4 ">
-                  Check it out{" "}
-                  <a
-                    href={testimonials[active].link}
-                    className="text-blue-500 underline"
-                  >
-                    here
-                  </a>
-                </p>
               </motion.p>
+              <p className="text-m text-white mt-1 md:mt-4">
+                Check it out{" "}
+                <a
+                  href={testimonials[active].link}
+                  className="text-blue-500 underline"
+                >
+                  here
+                </a>
+              </p>
             </motion.div>
             <div className="flex gap-4 pt-6 md:pt-0">
               <button
                 onClick={handlePrev}
                 className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                aria-label="Previous testimonial"
               >
                 <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
               </button>
               <button
                 onClick={handleNext}
                 className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                aria-label="Next testimonial"
               >
                 <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
               </button>
@@ -180,4 +184,3 @@ export const AnimatedTestimonials = ({
     </div>
   );
 };
-
