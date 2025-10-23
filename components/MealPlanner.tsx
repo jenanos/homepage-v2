@@ -8,7 +8,7 @@ import Link from "next/link";
 export function MealPlanner() {
     return (
         <CardContainer>
-            <CardBody className="bg-[#001122] relative group/card hover:shadow-2xl hover:shadow-white border-white/20 w-auto sm:w-120 h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gradient-to-br from-[#0a1a1a] to-[#162828] relative group/card hover:shadow-2xl hover:shadow-[#fb923c]/70 border-emerald-500/20 w-auto sm:w-120 h-auto rounded-xl p-6 border">
                 <CardItem translateZ="50" className="text-xl font-bold text-white">
                     Meal Planner
                 </CardItem>

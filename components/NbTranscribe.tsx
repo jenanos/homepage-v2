@@ -8,7 +8,7 @@ import Link from "next/link";
 export function NbTranscribe() {
     return (
         <CardContainer>
-            <CardBody className="bg-[#001122] relative group/card hover:shadow-2xl hover:shadow-white border-white/20 w-auto sm:w-120 h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gradient-to-br from-[#1a0a2e] to-[#0f1a3a] relative group/card hover:shadow-2xl hover:shadow-[#ec4899]/70 border-[#6366f1]/20 w-auto sm:w-120 h-auto rounded-xl p-6 border">
                 <CardItem translateZ="50" className="text-xl font-bold text-white">
                     NB-Transcribe
                 </CardItem>

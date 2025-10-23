@@ -23,7 +23,7 @@ export default function Other() {
           While my primary focus is on AI policy and regulation, I use coding as both a learning tool and a hobby. It helps me explore emerging features and technologies while staying connected to my technical roots.
         </p>
       </div>
-      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap gap-6">
+      <div className="py-3 flex w-3/4 flex-row justify-evenly text-center flex-wrap gap-6">
         <PrevSite />
         <NbTranscribe />
         <MealPlanner />
