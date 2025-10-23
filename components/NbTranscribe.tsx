@@ -17,7 +17,7 @@ export function NbTranscribe() {
                     translateZ="60"
                     className="text-white text-sm max-w-sm mt-2"
                 >
-                    nb-transcribe combines a FastAPI backend and Next.js frontend to
+                    NB-Transcribe combines a FastAPI backend and Next.js frontend to
                     deliver Norwegian speech-to-text with NB-Whisper and Gemma-3 powered
                     copy editing, complete with GPU-aware local development and Docker
                     Compose workflows.
