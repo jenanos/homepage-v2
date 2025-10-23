@@ -8,7 +8,7 @@ import Link from "next/link";
 export function PrevSite() {
   return (
     <CardContainer>
-      <CardBody className="bg-[#001122] relative group/card  hover:shadow-2xl hover:shadow-white border-white/20  w-auto sm:w-120 h-auto rounded-xl p-6 border  ">
+      <CardBody className="bg-gradient-to-br from-[#001122] to-[#002244] relative group/card hover:shadow-2xl hover:shadow-white/70 border-[#13acb6]/20 w-auto sm:w-120 h-auto rounded-xl p-6 border">
         <CardItem translateZ="50" className="text-xl font-bold text-white">
           My previous homepage
         </CardItem>
