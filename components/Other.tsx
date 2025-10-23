@@ -1,4 +1,6 @@
 import { PrevSite } from "./prevSite";
+import { NbTranscribe } from "./NbTranscribe";
+import { MealPlanner } from "./MealPlanner";
 
 export default function Other() {
   return (
@@ -21,8 +23,10 @@ export default function Other() {
           While my primary focus is on AI policy and regulation, I use coding as both a learning tool and a hobby. It helps me explore emerging features and technologies while staying connected to my technical roots.
         </p>
       </div>
-      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap">
+      <div className="flex w-3/4 flex-row justify-evenly text-center flex-wrap gap-6">
         <PrevSite />
+        <NbTranscribe />
+        <MealPlanner />
       </div>
     </section>
   );
