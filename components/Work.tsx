@@ -62,8 +62,10 @@ export default function Work() {
             the University of Oslo.
           </p>
           <p className="py-3">
-            Currently, I work on AI policy and regulation at the Norwegian
-            Digitalization Agency.
+            Currently, I work at the Norwegian Communications Authority (NKOM),
+            where I am working on establishing NKOM as the coordinating market
+            surveillance authority under the EU AI Act. Previously, I worked on
+            AI policy and regulation at the Norwegian Digitalization Agency.
           </p>
           <p className="py-3">
             I also have extensive experience in privacy, data protection,
