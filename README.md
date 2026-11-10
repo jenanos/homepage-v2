@@ -8,7 +8,7 @@ Welcome to the codebase behind Jens Osberg's modern, one-page personal site. The
 - **Story-driven content sections** for professional background, public speaking engagements, musical projects, and developer experiments.
 - **Interactive testimonial carousel** showcasing talks and podcast appearances with swipe support.
 - **Embedded Spotify player** to preview Gete's album *Tynn Is* directly on the page.
-- **3D-inspired card** linking to the previous homepage design for visitors who want to explore the earlier 3D experiment.
+- **Developer section** describing how agentic coding lets Jens build and run many apps alongside his legal work.
 
 ## 🛠️ Tech Stack
 - [Next.js 15](https://nextjs.org/) App Router with TypeScript
@@ -17,7 +17,7 @@ Welcome to the codebase behind Jens Osberg's modern, one-page personal site. The
 - [Framer Motion](https://www.framer.com/motion/) for parallax, scroll, and hover animations
 - [react-swipeable](https://www.npmjs.com/package/react-swipeable) for touch and trackpad gestures in the testimonial carousel
 - Custom, SSR-safe [`useMediaQuery`](./lib/hooks/use-media-query.ts) hook for adaptive motion behavior
-- Custom UI utilities for the testimonial slider, 3D card, and typewriter effect
+- Custom UI utilities for the testimonial slider and typewriter effect
 
 ## 🗂️ Project Structure
 ```
@@ -30,7 +30,7 @@ components/
   Work.tsx        // "About me" content with animated image
   Speaking.tsx    // Testimonial carousel of talks & podcasts
   Music.tsx       // Spotify embed and band story
-  Other.tsx       // Developer section with 3D card link
+  Other.tsx       // Developer section
   Footer.tsx      // Contact section with social links
   ui/             // Reusable animated and 3D UI primitives
 lib/
@@ -65,7 +65,7 @@ Each section can be tailored to reflect new achievements or media appearances:
 - **About me** (`Work.tsx`): Adjust the bio paragraphs or illustration.
 - **Public speaking** (`Speaking.tsx`): Extend the `testimonials` array with new talks.
 - **Music** (`Music.tsx`): Swap the Spotify embed or edit the band story.
-- **Developer** (`Other.tsx` + `prevSite.tsx`): Refresh the tech overview or change the external link.
+- **Developer** (`Other.tsx`): Refresh the tech overview and project description.
 - **Contact** (`Footer.tsx`): Update email and social URLs as needed.
 
 ## 🤝 Contributing
